@@ -9,13 +9,14 @@ import StatisticsPanel from './StatisticsPanel'
 import AchievementBadges from './AchievementBadges'
 import { BarChart3, BookOpen, Trophy } from 'lucide-react'
 import { useTranslation } from '../utils/translations'
+import RandomViewing from './RandomViewing'
 
 interface DashboardProps {
   user: User
 }
 
-// Type View đã bao gồm 'statistics'
-type View = 'dashboard' | 'vocabulary' | 'quiz' | 'results' | 'statistics' | 'achievements'
+// Type View đã bao gồm 'statistics' và 'random'
+type View = 'dashboard' | 'vocabulary' | 'quiz' | 'results' | 'statistics' | 'achievements' | 'random'
 
 export default function Dashboard({ user }: DashboardProps) {
   const t = useTranslation()
@@ -159,6 +160,10 @@ export default function Dashboard({ user }: DashboardProps) {
     )
   }
 
+  if (currentView === 'random') {
+    return <RandomViewing topics={topics} onBack={handleBackToDashboard} />
+  }
+
   return (
     <div>
       {/* Statistics Panel */}
@@ -173,6 +178,14 @@ export default function Dashboard({ user }: DashboardProps) {
           }`}
         >
           📚 Chủ đề học tập
+        </button>
+        <button
+          onClick={() => setCurrentView('random')}
+          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            currentView === 'random' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+        >
+          🎲 {t.randomPractice}
         </button>
         <button
           onClick={() => setCurrentView('statistics')}
