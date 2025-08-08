@@ -239,4 +239,3 @@ export default function RandomViewing({ topics, onBack }: RandomViewingProps) {
     </div>
   )
 }
-</create_file>
