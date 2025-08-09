@@ -1,6 +1,4 @@
 "use client"
-
-import * as React from "react";
 import { useState, useEffect } from "react"
 import type { User, Topic, Progress } from "../types"
 import TopicCard from "./TopicCard"
@@ -38,13 +36,9 @@ export default function Dashboard({ user }: DashboardProps) {
   }, [])
 
   const loadTopics = async () => {
-    try {
-      const response = await fetch(`${backendUrl}/topics`)
-      const data = await response.json()
-      setTopics(data)
-    } catch (error) {
-      console.error("Failed to load topics:", error)
-    }
+    const response = await fetch(`${backendUrl}/topics`)
+    const data = await response.json()
+    setTopics(data)
   }
 
   const loadProgress = async () => {
@@ -182,9 +176,9 @@ export default function Dashboard({ user }: DashboardProps) {
         </button>
         <button
           onClick={() => setCurrentView("random")}
-className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-  currentView === "random" ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-}`}
+          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+            currentView === "random" ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          }`}
         >
           🎲 {t.randomPractice}
         </button>
