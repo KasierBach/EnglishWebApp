@@ -20,8 +20,7 @@ export default function MatchingGame({ vocabularies, onComplete }: MatchingGameP
   useEffect(() => {
     // Tạo game với 6 từ đầu tiên
     const gameVocabs = vocabularies.slice(0, 6)
-    const cards: any[] = []
-
+    const cards = []
     
     gameVocabs.forEach((vocab, index) => {
       cards.push({

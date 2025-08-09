@@ -1,83 +1,48 @@
 export interface User {
-  id: number;
-  username: string;
-  email: string;
-  created_at: string;
+  id: number
+  username: string
+  email: string
+  role: string
 }
 
 export interface Topic {
-  id: number;
-  name: string;
-  description: string;
-  difficulty: string;
-  icon: string;
-}
-
-export interface Progress {
-  learned_words: number;
-  average_score: number;
-  quizzes_taken: number;
+  id: number
+  name: string
+  level: string
+  description: string
 }
 
 export interface Vocabulary {
-  id: number;
-  word: string;
-  meaning: string;
-  example: string;
-  pronunciation: string;
-  topic_id: number;
+  id: number
+  word: string
+  meaning: string
+  example: string
+  pronunciation: string
+  topic_id: number
 }
 
-export interface QuizQuestion {
-  id: number;
-  topic_id: number;
-  question: string;
+export interface Quiz {
+  id: number
+  topic_id: number
+  question: string
   options: {
-    A: string;
-    B: string;
-    C: string;
-    D: string;
-  };
-  correct_answer: string;
+    A: string
+    B: string
+    C: string
+    D: string
+  }
+  correct_answer: string
 }
 
-export interface MatchingPair {
-  word: string;
-  meaning: string;
-  id: number;
+export interface QuizResult {
+  quiz_id: number
+  selected_answer: string
+  correct_answer: string
+  is_correct: boolean
 }
 
-export interface MatchingGame {
-  words: string[];
-  meanings: string[];
-  correct_pairs: MatchingPair[];
-}
-
-export interface FillBlankQuestion {
-  sentence: string;
-  correct_word: string;
-  meaning: string;
-  id: number;
-}
-
-export interface ScrambleWord {
-  scrambled: string;
-  correct_word: string;
-  meaning: string;
-  id: number;
-}
-
-export interface RandomContent {
-  type: 'vocabulary' | 'quiz' | 'matching' | 'fill-blank' | 'scramble';
-  content: any;
-  topic_id?: number;
-}
-
-export interface RandomGameState {
-  currentContent: RandomContent | null;
-  score: number;
-  totalQuestions: number;
-  isLoading: boolean;
-  gameMode: string;
-  selectedTopic?: number;
+export interface Progress {
+  learned_words: number
+  average_score: number
+  quizzes_taken: number
 }
