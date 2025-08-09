@@ -28,7 +28,7 @@ export default function RandomQuizPlayer({ quiz, onBack, onNext, isLoading }: Ra
     onNext()
   }
 
-  if (!quiz) return null
+  if (!quiz) return null;
 
   return (
     <div className="card max-w-2xl mx-auto">
