@@ -20,7 +20,7 @@ type DashboardView = "dashboard" | "vocabulary" | "quiz" | "results" | "statisti
 
 export default function Dashboard({ user }: DashboardProps) {
   const t = useTranslation()
-  const [currentView, setCurrentView] = useState<DashboardView>("dashboard" as DashboardView)
+  const [currentView, setCurrentView] = useState<DashboardView>("dashboard")
   const [topics, setTopics] = useState<Topic[]>([])
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null)
   const [progress, setProgress] = useState<Progress>({
