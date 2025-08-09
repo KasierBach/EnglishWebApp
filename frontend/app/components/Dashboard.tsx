@@ -16,7 +16,7 @@ interface DashboardProps {
 }
 
 // Type View đã bao gồm 'statistics' và 'random'
-type View =
+type DashboardView =
   | 'dashboard'
   | 'vocabulary'
   | 'quiz'
@@ -27,7 +27,7 @@ type View =
 
 export default function Dashboard({ user }: DashboardProps) {
   const t = useTranslation()
-  const [currentView, setCurrentView] = useState<View>('dashboard')
+  const [currentView, setCurrentView] = useState<DashboardView>('dashboard')
   const [topics, setTopics] = useState<Topic[]>([])
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null)
   const [progress, setProgress] = useState<Progress>({
@@ -197,7 +197,9 @@ export default function Dashboard({ user }: DashboardProps) {
         <button
           onClick={() => setCurrentView('statistics')}
           className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-            currentView === ('statistics' as View) ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            currentView === 'statistics'
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
         >
           📊 {t.statistics}
