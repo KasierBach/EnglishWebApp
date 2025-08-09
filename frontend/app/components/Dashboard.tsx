@@ -180,7 +180,7 @@ export default function Dashboard({ user }: DashboardProps) {
           📚 Chủ đề học tập
         </button>
         <button
-          onClick={() => setCurrentView('random')}
+          onClick={() => setCurrentView('random' as View)}
           className={`px-4 py-2 rounded-lg font-medium transition-colors ${
             currentView === 'random' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
