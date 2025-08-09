@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useEffect } from "react"
 import type { User, Topic, Progress } from "../types"
 import TopicCard from "./TopicCard"
@@ -10,12 +11,12 @@ import { BarChart3, BookOpen, Trophy } from "lucide-react"
 import { useTranslation } from "../utils/translations"
 import RandomViewing from "./RandomViewing"
 
+// Đảm bảo kiểu DashboardView bao gồm tất cả các trạng thái xem
+export type DashboardView = "dashboard" | "vocabulary" | "quiz" | "results" | "statistics" | "achievements" | "random"
+
 interface DashboardProps {
   user: User
 }
-
-// Type View đã bao gồm 'statistics' và 'random'
-export type DashboardView = "dashboard" | "vocabulary" | "quiz" | "results" | "statistics" | "achievements" | "random"
 
 export default function Dashboard({ user }: DashboardProps) {
   const t = useTranslation()
@@ -36,9 +37,13 @@ export default function Dashboard({ user }: DashboardProps) {
   }, [])
 
   const loadTopics = async () => {
-    const response = await fetch(`${backendUrl}/topics`)
-    const data = await response.json()
-    setTopics(data)
+    try {
+      const response = await fetch(`${backendUrl}/topics`)
+      const data = await response.json()
+      setTopics(data)
+    } catch (error) {
+      console.error("Failed to load topics:", error)
+    }
   }
 
   const loadProgress = async () => {
