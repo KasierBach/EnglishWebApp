@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react";
 import { useState, useEffect } from "react"
 import type { User, Topic, Progress } from "../types"
 import TopicCard from "./TopicCard"
@@ -29,7 +30,6 @@ export default function Dashboard({ user }: DashboardProps) {
     quizzes_taken: 0,
   })
   const [quizScore, setQuizScore] = useState<any>(null)
-
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:5000/api"
 
   useEffect(() => {
@@ -203,13 +203,12 @@ className={`px-4 py-2 rounded-lg font-medium transition-colors ${
         <div className="lg:col-span-3">
           <h2 className="text-3xl font-bold text-gray-800 mb-8">{t.chooseTopicTitle}</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topics.map((topic) => (
+            {topics.map((topic: Topic) => (
+            {topics.map((topic: Topic) => (
               <TopicCard key={topic.id} topic={topic} onClick={() => handleTopicSelect(topic)} />
             ))}
           </div>
         </div>
-
         {/* Progress Sidebar */}
         <div className="lg:col-span-1">
           <div className="card">
