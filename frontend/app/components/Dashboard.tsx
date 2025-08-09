@@ -14,7 +14,7 @@ interface DashboardProps {
   user: User
 }
 
-// Sửa type definition để bao gồm 'statistics'
+// Type View đã bao gồm 'statistics'
 type View = 'dashboard' | 'vocabulary' | 'quiz' | 'results' | 'statistics' | 'achievements'
 
 export default function Dashboard({ user }: DashboardProps) {
@@ -71,7 +71,7 @@ export default function Dashboard({ user }: DashboardProps) {
   const handleQuizComplete = (score: any) => {
     setQuizScore(score)
     setCurrentView('results')
-    loadProgress() // Refresh progress after quiz
+    loadProgress()
   }
 
   const handleBackToDashboard = () => {
@@ -177,7 +177,7 @@ export default function Dashboard({ user }: DashboardProps) {
         <button
           onClick={() => setCurrentView('statistics')}
           className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-            currentView === 'statistics' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            currentView === ('statistics' as View) ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
           }`}
         >
           📊 {t.statistics}
