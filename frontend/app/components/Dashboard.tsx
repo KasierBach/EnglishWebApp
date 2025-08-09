@@ -183,7 +183,7 @@ export default function Dashboard({ user }: DashboardProps) {
         <button
           onClick={() => setCurrentView("random")}
 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-  (currentView as DashboardView) === "random" ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+  currentView === "random" ? "bg-purple-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
 }`}
         >
           🎲 {t.randomPractice}
