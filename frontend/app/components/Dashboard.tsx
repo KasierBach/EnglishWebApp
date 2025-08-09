@@ -16,7 +16,14 @@ interface DashboardProps {
 }
 
 // Type View đã bao gồm 'statistics' và 'random'
-type View = 'dashboard' | 'vocabulary' | 'quiz' | 'results' | 'achievements' | 'random'
+type View =
+  | 'dashboard'
+  | 'vocabulary'
+  | 'quiz'
+  | 'results'
+  | 'statistics'
+  | 'achievements'
+  | 'random'
 
 export default function Dashboard({ user }: DashboardProps) {
   const t = useTranslation()
