@@ -68,12 +68,17 @@ pip install -r requirements.txt
 python app.py
 \`\`\`
 
-### Deployment (Heroku)
-Ứng dụng đã được cấu hình sẵn cho Heroku với `Procfile`:
+### Deployment
+**Frontend**: Vercel  
+**Backend**: Render  
+
+Frontend được deploy trên Vercel với tự động deploy từ Git:
 \`\`\`bash
-# Deploy lên Heroku
-git push heroku main
+# Deploy frontend lên Vercel
+vercel --prod
 \`\`\`
+
+Backend được deploy trên Render với cấu hình từ repository.
 
 ## 📁 Cấu Trúc Dự Án
 
@@ -161,6 +166,3 @@ JWT_SECRET_KEY=your-secret-key
 # Frontend
 NEXT_PUBLIC_API_URL=http://localhost:5000
 \`\`\`
-
-## 📄 License
-Dự án này được phân phối dưới MIT License. Xem file `LICENSE` để biết thêm chi tiết.
