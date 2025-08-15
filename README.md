@@ -78,23 +78,33 @@ git push heroku main
 ## 📁 Cấu Trúc Dự Án
 
 \`\`\`
-├── app/                          # Frontend Next.js
-│   ├── components/              # React components
-│   │   ├── Dashboard.tsx        # Trang chính
-│   │   ├── QuizSection.tsx      # Hệ thống quiz
-│   │   ├── MatchingGame.tsx     # Trò chơi ghép cặp
-│   │   ├── VocabularySection.tsx # Học từ vựng
-│   │   ├── WritingPractice.tsx  # Luyện viết
-│   │   ├── StatisticsPanel.tsx  # Thống kê
-│   │   ├── AchievementBadges.tsx # Hệ thống thành tích
-│   │   └── AuthSection.tsx      # Đăng nhập/đăng ký
-│   ├── types/                   # TypeScript types
-│   ├── utils/                   # Utilities và translations
-│   └── page.tsx                 # Trang chủ
-├── app.py                       # Flask backend server
-├── requirements.txt             # Python dependencies
-├── Procfile                     # Heroku deployment config
-└── package.json                 # Node.js dependencies
+EnglishWebApp/
+├── app/                              # Frontend Next.js
+│   ├── components/                   # React components
+│   │   ├── AchievementBadges.tsx     # Hệ thống thành tích và huy hiệu
+│   │   ├── AuthSection.tsx           # Đăng nhập/đăng ký
+│   │   ├── Dashboard.tsx             # Trang chính sau khi đăng nhập
+│   │   ├── LanguageToggle.tsx        # Chuyển đổi ngôn ngữ
+│   │   ├── MatchingGame.tsx          # Trò chơi ghép cặp từ vựng
+│   │   ├── QuizSection.tsx           # Hệ thống quiz trắc nghiệm
+│   │   ├── StatisticsPanel.tsx       # Bảng thống kê tiến độ
+│   │   ├── VocabularySection.tsx     # Học từ vựng với flashcards
+│   │   └── WritingPractice.tsx       # Luyện viết từ vựng
+│   ├── types/
+│   │   └── index.ts                  # TypeScript type definitions
+│   ├── utils/
+│   │   └── translations.ts           # Bản dịch đa ngôn ngữ
+│   ├── globals.css                   # Global styles
+│   ├── layout.tsx                    # Root layout
+│   └── page.tsx                      # Trang chủ
+├── app.py                            # Flask backend server
+├── random_generator.py               # Tạo dữ liệu ngẫu nhiên
+├── requirements.txt                  # Python dependencies
+├── Procfile                          # Heroku deployment config
+├── package.json                      # Node.js dependencies
+├── next.config.js                    # Next.js configuration
+├── tailwind.config.ts                # Tailwind CSS config
+└── tsconfig.json                     # TypeScript config
 \`\`\`
 
 ## 🎮 Cách Sử Dụng
@@ -152,39 +162,5 @@ JWT_SECRET_KEY=your-secret-key
 NEXT_PUBLIC_API_URL=http://localhost:5000
 \`\`\`
 
-## 📈 Tính Năng Sắp Tới
-
-- [ ] Tính năng nghe và phát âm
-- [ ] Học tập với AI
-- [ ] Chế độ học nhóm
-- [ ] Thêm nhiều ngôn ngữ
-- [ ] Mobile app (React Native)
-- [ ] Tích hợp với Google Translate API
-
-## 🤝 Đóng Góp
-
-1. Fork dự án
-2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit thay đổi (`git commit -m 'Add some AmazingFeature'`)
-4. Push lên branch (`git push origin feature/AmazingFeature`)
-5. Tạo Pull Request
-
 ## 📄 License
-
 Dự án này được phân phối dưới MIT License. Xem file `LICENSE` để biết thêm chi tiết.
-
-## 👥 Tác Giả
-
-- **Developer**: [Tên của bạn]
-- **Email**: [email@example.com]
-- **GitHub**: [github.com/username]
-
-## 🙏 Cảm Ơn
-
-- Cảm ơn cộng đồng Next.js và Flask
-- Icons từ Lucide React
-- UI components từ Tailwind CSS
-
----
-
-**Happy Learning! 🎉 Chúc bạn học tốt!**
